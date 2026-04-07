@@ -1,0 +1,1261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:component
+    xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014
+                        http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+
+  <ipxact:vendor>local</ipxact:vendor>
+  <ipxact:library>lcd</ipxact:library>
+  <ipxact:name>LCD_CTRL</ipxact:name>
+  <ipxact:version>1.0</ipxact:version>
+
+  <ipxact:busInterfaces>
+    <ipxact:busInterface>
+      <ipxact:name>APB_slave</ipxact:name>
+      <ipxact:busType vendor="amba.com" library="AMBA3" name="APB" version="1.0"/>
+      <ipxact:abstractionTypes>
+        <ipxact:abstractionType>
+          <ipxact:abstractionRef vendor="amba.com" library="AMBA3" name="APB_rtl" version="1.0"/>
+          <ipxact:portMaps>
+            <ipxact:portMap>
+              <ipxact:logicalPort>
+                <ipxact:name>PCLK</ipxact:name>
+              </ipxact:logicalPort>
+              <ipxact:physicalPort>
+                <ipxact:name>clk</ipxact:name>
+              </ipxact:physicalPort>
+            </ipxact:portMap>
+            <ipxact:portMap>
+              <ipxact:logicalPort>
+                <ipxact:name>PRESETn</ipxact:name>
+              </ipxact:logicalPort>
+              <ipxact:physicalPort>
+                <ipxact:name>rst_n</ipxact:name>
+              </ipxact:physicalPort>
+            </ipxact:portMap>
+            <ipxact:portMap>
+              <ipxact:logicalPort>
+                <ipxact:name>PSEL</ipxact:name>
+              </ipxact:logicalPort>
+              <ipxact:physicalPort>
+                <ipxact:name>PSEL</ipxact:name>
+              </ipxact:physicalPort>
+            </ipxact:portMap>
+            <ipxact:portMap>
+              <ipxact:logicalPort>
+                <ipxact:name>PENABLE</ipxact:name>
+              </ipxact:logicalPort>
+              <ipxact:physicalPort>
+                <ipxact:name>PENABLE</ipxact:name>
+              </ipxact:physicalPort>
+            </ipxact:portMap>
+            <ipxact:portMap>
+              <ipxact:logicalPort>
+                <ipxact:name>PWRITE</ipxact:name>
+              </ipxact:logicalPort>
+              <ipxact:physicalPort>
+                <ipxact:name>PWRITE</ipxact:name>
+              </ipxact:physicalPort>
+            </ipxact:portMap>
+            <ipxact:portMap>
+              <ipxact:logicalPort>
+                <ipxact:name>PADDR</ipxact:name>
+              </ipxact:logicalPort>
+              <ipxact:physicalPort>
+                <ipxact:name>PADDR</ipxact:name>
+              </ipxact:physicalPort>
+            </ipxact:portMap>
+            <ipxact:portMap>
+              <ipxact:logicalPort>
+                <ipxact:name>PWDATA</ipxact:name>
+              </ipxact:logicalPort>
+              <ipxact:physicalPort>
+                <ipxact:name>PWDATA</ipxact:name>
+              </ipxact:physicalPort>
+            </ipxact:portMap>
+            <ipxact:portMap>
+              <ipxact:logicalPort>
+                <ipxact:name>PRDATA</ipxact:name>
+              </ipxact:logicalPort>
+              <ipxact:physicalPort>
+                <ipxact:name>PRDATA</ipxact:name>
+              </ipxact:physicalPort>
+            </ipxact:portMap>
+            <ipxact:portMap>
+              <ipxact:logicalPort>
+                <ipxact:name>PREADY</ipxact:name>
+              </ipxact:logicalPort>
+              <ipxact:physicalPort>
+                <ipxact:name>PREADY</ipxact:name>
+              </ipxact:physicalPort>
+            </ipxact:portMap>
+            <ipxact:portMap>
+              <ipxact:logicalPort>
+                <ipxact:name>PSLVERR</ipxact:name>
+              </ipxact:logicalPort>
+              <ipxact:physicalPort>
+                <ipxact:name>PSLVERR</ipxact:name>
+              </ipxact:physicalPort>
+            </ipxact:portMap>
+          </ipxact:portMaps>
+        </ipxact:abstractionType>
+      </ipxact:abstractionTypes>
+      <ipxact:slave>
+        <ipxact:memoryMapRef memoryMapRef="regMap"/>
+      </ipxact:slave>
+    </ipxact:busInterface>
+  </ipxact:busInterfaces>
+
+  <ipxact:memoryMaps>
+    <ipxact:memoryMap>
+      <ipxact:name>regMap</ipxact:name>
+      <ipxact:addressBlock>
+        <ipxact:name>lcd_registers</ipxact:name>
+        <ipxact:baseAddress>0x0</ipxact:baseAddress>
+        <ipxact:range>0x100</ipxact:range>
+        <ipxact:width>32</ipxact:width>
+        <ipxact:usage>register</ipxact:usage>
+
+        <ipxact:register>
+          <ipxact:name>LCD_CTRL</ipxact:name>
+          <ipxact:description>Master enable. Clears cleanly with SOFT_RST.</ipxact:description>
+          <ipxact:addressOffset>0x0</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>LCD_EN</ipxact:name>
+            <ipxact:description>Master enable. Clears cleanly with SOFT_RST.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DMA_EN</ipxact:name>
+            <ipxact:description>Enable DMA engine for autonomous frame fetch from system memory.</ipxact:description>
+            <ipxact:bitOffset>1</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>TE_EN</ipxact:name>
+            <ipxact:description>Enable TE synchronization. Frame trigger waits for TE edge.</ipxact:description>
+            <ipxact:bitOffset>2</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CMD_SEQ_EN</ipxact:name>
+            <ipxact:description>Enable auto CASET/PASET/RAMWR sequence before pixel burst.</ipxact:description>
+            <ipxact:bitOffset>3</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>STREAM_MODE</ipxact:name>
+            <ipxact:description>CS# stays LOW across frames, CMD skipped after first. Latch-at-trigger.</ipxact:description>
+            <ipxact:bitOffset>4</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>PARTIAL_EN</ipxact:name>
+            <ipxact:description>Enable partial update region (LCD_PU_X/Y). Latched at trigger.</ipxact:description>
+            <ipxact:bitOffset>5</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>BYTE_SWAP</ipxact:name>
+            <ipxact:description>0=MSB first (GC9306X native), 1=LSB first. Latched at trigger.</ipxact:description>
+            <ipxact:bitOffset>6</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>FB_SEL</ipxact:name>
+            <ipxact:description>Latched at trigger. Select active frame buffer: 0=FB0, 1=FB1.</ipxact:description>
+            <ipxact:bitOffset>7</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SOFT_RST</ipxact:name>
+            <ipxact:description>Self-clearing. Resets all internal state except RESX output.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>clear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>FORCE_CMD</ipxact:name>
+            <ipxact:description>Self-clearing. Forces immediate CMD FIFO drain, bypassing frame FSM.</ipxact:description>
+            <ipxact:bitOffset>9</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>clear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DMA_SRC</ipxact:name>
+            <ipxact:description>Pixel source: 0=DMA engine (default), 1=AXI slave port. Idle-only change.</ipxact:description>
+            <ipxact:bitOffset>10</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>AUTO_BUF_SEL</ipxact:name>
+            <ipxact:description>AXI slave buffer routing: 1=auto-route to AXI_OWN buffer, 0=explicit AWADDR. Idle-only change.</ipxact:description>
+            <ipxact:bitOffset>11</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x1</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_STATUS</ipxact:name>
+          <ipxact:description>Set when complete frame transmitted to display. Write 1 to clear.</ipxact:description>
+          <ipxact:addressOffset>0x4</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>FRAME_DONE</ipxact:name>
+            <ipxact:description>Set when complete frame transmitted to display. Write 1 to clear.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CMD_DONE</ipxact:name>
+            <ipxact:description>Set when CMD FIFO drains completely. Write 1 to clear.</ipxact:description>
+            <ipxact:bitOffset>1</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>FRAME_LATE</ipxact:name>
+            <ipxact:description>Set when new TE edge arrives before current frame completes. Write 1 to clear.</ipxact:description>
+            <ipxact:bitOffset>2</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>ADDR_OOB</ipxact:name>
+            <ipxact:description>Set when DMA address exceeds validated AXI region. Write 1 to clear.</ipxact:description>
+            <ipxact:bitOffset>3</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>STRIDE_ERR</ipxact:name>
+            <ipxact:description>STRIDE too small or not aligned. DMA aborted. Write 1 to clear.</ipxact:description>
+            <ipxact:bitOffset>4</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>AXI_ERR</ipxact:name>
+            <ipxact:description>Set on AXI RRESP != OKAY during DMA burst. ERR_ADDR latched. Write 1 to clear.</ipxact:description>
+            <ipxact:bitOffset>5</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>FIFO_UNDERRUN</ipxact:name>
+            <ipxact:description>TX FIFO emptied mid-row during SPI drain. Critical. Write 1 to clear.</ipxact:description>
+            <ipxact:bitOffset>6</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>TE_TIMEOUT</ipxact:name>
+            <ipxact:description>TE_TIMEOUT period expired with no TE edge. Write 1 to clear.</ipxact:description>
+            <ipxact:bitOffset>7</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>MODE_SWITCH_ERR</ipxact:name>
+            <ipxact:description>SPI_CFG written while SPI_BUSY=1. Write 1 to clear.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SPI_BUSY</ipxact:name>
+            <ipxact:description>Live: SPI engine is actively clocking data.</ipxact:description>
+            <ipxact:bitOffset>9</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DMA_BUSY</ipxact:name>
+            <ipxact:description>Live: DMA engine is performing AXI read burst.</ipxact:description>
+            <ipxact:bitOffset>10</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>FRAME_ACTIVE</ipxact:name>
+            <ipxact:description>Live: Frame transfer in progress (DMA+SPI inclusive).</ipxact:description>
+            <ipxact:bitOffset>11</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CMD_BUSY</ipxact:name>
+            <ipxact:description>Live: Command path is draining CMD FIFO.</ipxact:description>
+            <ipxact:bitOffset>12</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>RESX_ACTIVE</ipxact:name>
+            <ipxact:description>Live: RESX pulse or post-reset delay in progress.</ipxact:description>
+            <ipxact:bitOffset>13</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_IRQ_EN</ipxact:name>
+          <ipxact:description>Enable FRAME_DONE interrupt.</ipxact:description>
+          <ipxact:addressOffset>0x8</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>FRAME_DONE_EN</ipxact:name>
+            <ipxact:description>Enable FRAME_DONE interrupt.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CMD_DONE_EN</ipxact:name>
+            <ipxact:description>Enable CMD_DONE interrupt.</ipxact:description>
+            <ipxact:bitOffset>1</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>FRAME_LATE_EN</ipxact:name>
+            <ipxact:description>Enable FRAME_LATE interrupt.</ipxact:description>
+            <ipxact:bitOffset>2</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>ADDR_OOB_EN</ipxact:name>
+            <ipxact:description>Enable ADDR_OOB interrupt.</ipxact:description>
+            <ipxact:bitOffset>3</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>STRIDE_ERR_EN</ipxact:name>
+            <ipxact:description>Enable STRIDE_ERR interrupt.</ipxact:description>
+            <ipxact:bitOffset>4</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>AXI_ERR_EN</ipxact:name>
+            <ipxact:description>Enable AXI_ERR interrupt.</ipxact:description>
+            <ipxact:bitOffset>5</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>FIFO_UNDERRUN_EN</ipxact:name>
+            <ipxact:description>Enable FIFO_UNDERRUN interrupt.</ipxact:description>
+            <ipxact:bitOffset>6</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>TE_TIMEOUT_EN</ipxact:name>
+            <ipxact:description>Enable TE_TIMEOUT interrupt.</ipxact:description>
+            <ipxact:bitOffset>7</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>MODE_SWITCH_ERR_EN</ipxact:name>
+            <ipxact:description>Enable MODE_SWITCH_ERR interrupt.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CMD_HALF_EMPTY_EN</ipxact:name>
+            <ipxact:description>Enable IRQ when CMD FIFO drops below half-full.</ipxact:description>
+            <ipxact:bitOffset>9</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_FB0_ADDR</ipxact:name>
+          <ipxact:description>AXI base address of frame buffer 0. Bits[1:0] must be 0. Latched at DMA trigger.</ipxact:description>
+          <ipxact:addressOffset>0xC</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>FB0_ADDR</ipxact:name>
+            <ipxact:description>AXI base address of frame buffer 0. Bits[1:0] must be 0. Latched at DMA trigger.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_FB1_ADDR</ipxact:name>
+          <ipxact:description>AXI base address of frame buffer 1. Bits[1:0] must be 0. Latched at DMA trigger.</ipxact:description>
+          <ipxact:addressOffset>0x10</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>FB1_ADDR</ipxact:name>
+            <ipxact:description>AXI base address of frame buffer 1. Bits[1:0] must be 0. Latched at DMA trigger.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_STRIDE</ipxact:name>
+          <ipxact:description>Row stride in bytes. QVGA=480, VGA=1280. Multiple of AXI data width. Latched at DMA trigger.</ipxact:description>
+          <ipxact:addressOffset>0x14</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>STRIDE</ipxact:name>
+            <ipxact:description>Row stride in bytes. QVGA=480, VGA=1280. Multiple of AXI data width. Latched at DMA trigger.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>16</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_PU_X</ipxact:name>
+          <ipxact:description>Start column 0-based inclusive. SC value for CASET. Latched at DMA trigger.</ipxact:description>
+          <ipxact:addressOffset>0x18</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>PU_X_START</ipxact:name>
+            <ipxact:description>Start column 0-based inclusive. SC value for CASET. Latched at DMA trigger.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>16</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>PU_X_END</ipxact:name>
+            <ipxact:description>End column 0-based inclusive. EC value for CASET. Latched at DMA trigger.</ipxact:description>
+            <ipxact:bitOffset>16</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>16</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_PU_Y</ipxact:name>
+          <ipxact:description>Start row 0-based inclusive. SP value for PASET. Latched at DMA trigger.</ipxact:description>
+          <ipxact:addressOffset>0x1C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>PU_Y_START</ipxact:name>
+            <ipxact:description>Start row 0-based inclusive. SP value for PASET. Latched at DMA trigger.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>16</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>PU_Y_END</ipxact:name>
+            <ipxact:description>End row 0-based inclusive. EP value for PASET. Latched at DMA trigger.</ipxact:description>
+            <ipxact:bitOffset>16</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>16</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_SPI_CFG</ipxact:name>
+          <ipxact:description>SPI clock divider. SCK = sys_clk / (2*(SPI_DIV+1)). GC9306X target: SPI_DIV=4 @ 100MHz -&gt; 10MHz.</ipxact:description>
+          <ipxact:addressOffset>0x20</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>SPI_DIV</ipxact:name>
+            <ipxact:description>SPI clock divider. SCK = sys_clk / (2*(SPI_DIV+1)). GC9306X target: SPI_DIV=4 @ 100MHz -&gt; 10MHz.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>4</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SPI_MODE</ipxact:name>
+            <ipxact:description>SPI clock polarity/phase: 0=Mode0(CPOL=0/CPHA=0), 1=Mode1, 2=Mode2, 3=Mode3.</ipxact:description>
+            <ipxact:bitOffset>4</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>2</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>WIRE_3</ipxact:name>
+            <ipxact:description>0=4-wire SPI (separate spi_dc pin), 1=3-wire SPI (D/C embedded as 9th bit).</ipxact:description>
+            <ipxact:bitOffset>6</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CS_SETUP</ipxact:name>
+            <ipxact:description>CS# setup cycles between CS# assertion and first SCK edge. Min 3 @ 100MHz (30ns &gt;= GC9306X 20ns).</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x1</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>4</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CS_HOLD</ipxact:name>
+            <ipxact:description>CS# hold cycles between last SCK edge and CS# de-assertion. Min 5 @ 100MHz (50ns &gt;= GC9306X 40ns).</ipxact:description>
+            <ipxact:bitOffset>12</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0xF</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>4</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_TE_CFG</ipxact:name>
+          <ipxact:description>Bresenham numerator: target FPS (e.g. 24). Divider passes TE_FPS_NUM of every TE_FPS_DEN pulses.</ipxact:description>
+          <ipxact:addressOffset>0x24</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>TE_FPS_NUM</ipxact:name>
+            <ipxact:description>Bresenham numerator: target FPS (e.g. 24). Divider passes TE_FPS_NUM of every TE_FPS_DEN pulses.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x1</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>8</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>TE_FPS_DEN</ipxact:name>
+            <ipxact:description>Bresenham denominator: display TE rate in Hz (e.g. 60). 0 treated as 1 (divide-by-zero protection).</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x1</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>8</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>TE_TIMEOUT</ipxact:name>
+            <ipxact:description>Timeout in TE periods (10ms units @ 100MHz). 0=disabled. If no TE edge, assert TE_TIMEOUT IRQ.</ipxact:description>
+            <ipxact:bitOffset>16</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0xFF</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>8</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>TE_POL</ipxact:name>
+            <ipxact:description>TE input polarity: 0=trigger on rising edge (GC9306X default, V-blank HIGH), 1=falling edge.</ipxact:description>
+            <ipxact:bitOffset>24</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_RESX_CFG0</ipxact:name>
+          <ipxact:description>RESX pulse width in sys_clk cycles. GC9306X requires &gt;= 10us low (1000 cycles @ 100MHz).</ipxact:description>
+          <ipxact:addressOffset>0x28</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>RESX_WIDTH</ipxact:name>
+            <ipxact:description>RESX pulse width in sys_clk cycles. GC9306X requires &gt;= 10us low (1000 cycles @ 100MHz).</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x64</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>16</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_RESX_CFG1</ipxact:name>
+          <ipxact:description>Delay in sys_clk cycles after RESX de-assertion before RESX_DONE is set. GC9306X requires &gt;= 5ms.</ipxact:description>
+          <ipxact:addressOffset>0x2C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>RESX_DELAY</ipxact:name>
+            <ipxact:description>Delay in sys_clk cycles after RESX de-assertion before RESX_DONE is set. GC9306X requires &gt;= 5ms.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x64</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>16</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>RESX_ASSERT</ipxact:name>
+            <ipxact:description>Self-clearing. Write 1 to trigger RESX pulse sequence. Cleared when sequence starts.</ipxact:description>
+            <ipxact:bitOffset>16</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>clear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_CMD_FIFO</ipxact:name>
+          <ipxact:description>Word0: LCD command byte to send (DC=0). E.g. 0x2A=CASET, 0x2B=PASET, 0x2C=RAMWR.</ipxact:description>
+          <ipxact:addressOffset>0x30</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>write-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>CMD_BYTE</ipxact:name>
+            <ipxact:description>Word0: LCD command byte to send (DC=0). E.g. 0x2A=CASET, 0x2B=PASET, 0x2C=RAMWR.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>8</ipxact:bitWidth>
+            <ipxact:access>write-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>PAYLOAD_LEN</ipxact:name>
+            <ipxact:description>Word0: Number of payload bytes following (0-255). Word1+ carry payload bytes (DC=1).</ipxact:description>
+            <ipxact:bitOffset>16</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>8</ipxact:bitWidth>
+            <ipxact:access>write-only</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_CMD_STATUS</ipxact:name>
+          <ipxact:description>Current number of entries in CMD FIFO (0-63).</ipxact:description>
+          <ipxact:addressOffset>0x34</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:volatile>true</ipxact:volatile>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>CMD_FIFO_LEVEL</ipxact:name>
+            <ipxact:description>Current number of entries in CMD FIFO (0-63).</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CMD_FIFO_FULL</ipxact:name>
+            <ipxact:description>Asserted when CMD FIFO contains 64 entries.</ipxact:description>
+            <ipxact:bitOffset>6</ipxact:bitOffset>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CMD_FIFO_EMPTY</ipxact:name>
+            <ipxact:description>Asserted when CMD FIFO is empty.</ipxact:description>
+            <ipxact:bitOffset>7</ipxact:bitOffset>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CMD_FIFO_HALF_EMPTY</ipxact:name>
+            <ipxact:description>Asserted when CMD FIFO level &lt; 32. Use with CMD_HALF_EMPTY_EN for IRQ-driven write.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_ERR_ADDR</ipxact:name>
+          <ipxact:description>AXI read address that triggered last DMA fault (ADDR_OOB or AXI_ERR). Debug use.</ipxact:description>
+          <ipxact:addressOffset>0x38</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:volatile>true</ipxact:volatile>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>ERR_ADDR</ipxact:name>
+            <ipxact:description>AXI read address that triggered last DMA fault (ADDR_OOB or AXI_ERR). Debug use.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_VERSION</ipxact:name>
+          <ipxact:description>Minor version number. Synthesis parameter IP_VER_MINOR. Default 0x00 for v1.0.</ipxact:description>
+          <ipxact:addressOffset>0x3C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:volatile>true</ipxact:volatile>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>IP_VER_MINOR</ipxact:name>
+            <ipxact:description>Minor version number. Synthesis parameter IP_VER_MINOR. Default 0x00 for v1.0.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:bitWidth>8</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IP_VER_MAJOR</ipxact:name>
+            <ipxact:description>Major version number. Synthesis parameter IP_VER_MAJOR. Default 0x01 for v1.x.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:bitWidth>8</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IP_ID</ipxact:name>
+            <ipxact:description>IP identifier constant. Synthesis parameter IP_ID. Default 0xAC1D for silicon ID.</ipxact:description>
+            <ipxact:bitOffset>16</ipxact:bitOffset>
+            <ipxact:bitWidth>16</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_INFO</ipxact:name>
+          <ipxact:description>Max column count from synthesis parameter MAX_COL. Default 240 for QVGA, 640 for VGA.</ipxact:description>
+          <ipxact:addressOffset>0x40</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:volatile>true</ipxact:volatile>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>MAX_COL</ipxact:name>
+            <ipxact:description>Max column count from synthesis parameter MAX_COL. Default 240 for QVGA, 640 for VGA.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:bitWidth>12</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>MAX_ROW</ipxact:name>
+            <ipxact:description>Max row count from synthesis parameter MAX_ROW. Default 320 for QVGA, 480 for VGA.</ipxact:description>
+            <ipxact:bitOffset>12</ipxact:bitOffset>
+            <ipxact:bitWidth>12</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_FRAME_CTRL</ipxact:name>
+          <ipxact:description>Write 1 to trigger a frame. Self-clearing. TE mode: arms trigger, DMA starts on next qualifying TE edge.</ipxact:description>
+          <ipxact:addressOffset>0x44</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>FRAME_READY</ipxact:name>
+            <ipxact:description>Write 1 to trigger a frame. Self-clearing. TE mode: arms trigger, DMA starts on next qualifying TE edge.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:modifiedWriteValue>clear</ipxact:modifiedWriteValue>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>FRAME_COUNT</ipxact:name>
+            <ipxact:description>Rolling 8-bit frame counter. Incremented on each FRAME_DONE. Wraps 255-&gt;0. Frame-rate measurement.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>8</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_LINEBUF_STATUS</ipxact:name>
+          <ipxact:description>Line buffer A is full (DMA fill complete for this row).</ipxact:description>
+          <ipxact:addressOffset>0x48</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:volatile>true</ipxact:volatile>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>BUF_A_FULL</ipxact:name>
+            <ipxact:description>Line buffer A is full (DMA fill complete for this row).</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>BUF_B_FULL</ipxact:name>
+            <ipxact:description>Line buffer B is full.</ipxact:description>
+            <ipxact:bitOffset>1</ipxact:bitOffset>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>BUF_A_EMPTY</ipxact:name>
+            <ipxact:description>Line buffer A is empty (SPI drain complete).</ipxact:description>
+            <ipxact:bitOffset>2</ipxact:bitOffset>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>BUF_B_EMPTY</ipxact:name>
+            <ipxact:description>Line buffer B is empty.</ipxact:description>
+            <ipxact:bitOffset>3</ipxact:bitOffset>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>ACTIVE_WR_BUF</ipxact:name>
+            <ipxact:description>Current DMA write target: 0=Buffer A, 1=Buffer B.</ipxact:description>
+            <ipxact:bitOffset>4</ipxact:bitOffset>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>ACTIVE_RD_BUF</ipxact:name>
+            <ipxact:description>Current SPI read source: 0=Buffer A, 1=Buffer B.</ipxact:description>
+            <ipxact:bitOffset>5</ipxact:bitOffset>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_SLAVE_BUFA_ADDR</ipxact:name>
+          <ipxact:description>AXI slave Buffer A base address in SoC memory map. Set at integration time via parameter.</ipxact:description>
+          <ipxact:addressOffset>0x4C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:volatile>true</ipxact:volatile>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>BUFA_ADDR</ipxact:name>
+            <ipxact:description>AXI slave Buffer A base address in SoC memory map. Set at integration time via parameter.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_SLAVE_BUFB_ADDR</ipxact:name>
+          <ipxact:description>AXI slave Buffer B base address in SoC memory map. = BUFA_ADDR + LINE_BUF_SIZE.</ipxact:description>
+          <ipxact:addressOffset>0x50</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:volatile>true</ipxact:volatile>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>BUFB_ADDR</ipxact:name>
+            <ipxact:description>AXI slave Buffer B base address in SoC memory map. = BUFA_ADDR + LINE_BUF_SIZE.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+        <ipxact:register>
+          <ipxact:name>LCD_SLAVE_INFO</ipxact:name>
+          <ipxact:description>AXI slave total aperture size in bytes. = 2 * LINE_BUF_SIZE. QVGA: 1024 (0x400), VGA: 4096 (0x1000).</ipxact:description>
+          <ipxact:addressOffset>0x54</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:volatile>true</ipxact:volatile>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>APERTURE_SIZE</ipxact:name>
+            <ipxact:description>AXI slave total aperture size in bytes. = 2 * LINE_BUF_SIZE. QVGA: 1024 (0x400), VGA: 4096 (0x1000).</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-only</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+
+      </ipxact:addressBlock>
+    </ipxact:memoryMap>
+  </ipxact:memoryMaps>
+
+  <ipxact:model>
+    <ipxact:views>
+      <ipxact:view>
+        <ipxact:name>rtl</ipxact:name>
+        <ipxact:displayName>RTL View</ipxact:displayName>
+        <ipxact:envIdentifier>:*:</ipxact:envIdentifier>
+        <ipxact:componentInstantiationRef>rtl_impl</ipxact:componentInstantiationRef>
+      </ipxact:view>
+    </ipxact:views>
+    <ipxact:instantiations>
+      <ipxact:componentInstantiation>
+        <ipxact:name>rtl_impl</ipxact:name>
+        <ipxact:language>SystemVerilog</ipxact:language>
+      </ipxact:componentInstantiation>
+    </ipxact:instantiations>
+    <ipxact:ports>
+      <ipxact:port>
+        <ipxact:name>clk</ipxact:name>
+        <ipxact:wire>
+          <ipxact:direction>in</ipxact:direction>
+        </ipxact:wire>
+      </ipxact:port>
+      <ipxact:port>
+        <ipxact:name>rst_n</ipxact:name>
+        <ipxact:wire>
+          <ipxact:direction>in</ipxact:direction>
+        </ipxact:wire>
+      </ipxact:port>
+      <ipxact:port>
+        <ipxact:name>PSEL</ipxact:name>
+        <ipxact:wire>
+          <ipxact:direction>in</ipxact:direction>
+        </ipxact:wire>
+      </ipxact:port>
+      <ipxact:port>
+        <ipxact:name>PENABLE</ipxact:name>
+        <ipxact:wire>
+          <ipxact:direction>in</ipxact:direction>
+        </ipxact:wire>
+      </ipxact:port>
+      <ipxact:port>
+        <ipxact:name>PWRITE</ipxact:name>
+        <ipxact:wire>
+          <ipxact:direction>in</ipxact:direction>
+        </ipxact:wire>
+      </ipxact:port>
+      <ipxact:port>
+        <ipxact:name>PADDR</ipxact:name>
+        <ipxact:wire>
+          <ipxact:direction>in</ipxact:direction>
+          <ipxact:vectors>
+            <ipxact:vector>
+              <ipxact:left>31</ipxact:left>
+              <ipxact:right>0</ipxact:right>
+            </ipxact:vector>
+          </ipxact:vectors>
+        </ipxact:wire>
+      </ipxact:port>
+      <ipxact:port>
+        <ipxact:name>PWDATA</ipxact:name>
+        <ipxact:wire>
+          <ipxact:direction>in</ipxact:direction>
+          <ipxact:vectors>
+            <ipxact:vector>
+              <ipxact:left>31</ipxact:left>
+              <ipxact:right>0</ipxact:right>
+            </ipxact:vector>
+          </ipxact:vectors>
+        </ipxact:wire>
+      </ipxact:port>
+      <ipxact:port>
+        <ipxact:name>PRDATA</ipxact:name>
+        <ipxact:wire>
+          <ipxact:direction>out</ipxact:direction>
+          <ipxact:vectors>
+            <ipxact:vector>
+              <ipxact:left>31</ipxact:left>
+              <ipxact:right>0</ipxact:right>
+            </ipxact:vector>
+          </ipxact:vectors>
+        </ipxact:wire>
+      </ipxact:port>
+      <ipxact:port>
+        <ipxact:name>PREADY</ipxact:name>
+        <ipxact:wire>
+          <ipxact:direction>out</ipxact:direction>
+        </ipxact:wire>
+      </ipxact:port>
+      <ipxact:port>
+        <ipxact:name>PSLVERR</ipxact:name>
+        <ipxact:wire>
+          <ipxact:direction>out</ipxact:direction>
+        </ipxact:wire>
+      </ipxact:port>
+    </ipxact:ports>
+  </ipxact:model>
+
+  <ipxact:description>SPI LCD Controller with Integrated DMA Engine - GC9306X primary target</ipxact:description>
+
+</ipxact:component>
