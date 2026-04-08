@@ -180,58 +180,58 @@ logic        pready_rd_r;
 // ----------------------------------------------------------------------------
 always_ff @(posedge PCLK or negedge PRESETn) begin
   if (!PRESETn) begin
-    lcd_ctrl_lcd_en_r <= `LCD_LCD_CTRL_LCD_EN_RST;
-    lcd_ctrl_dma_en_r <= `LCD_LCD_CTRL_DMA_EN_RST;
-    lcd_ctrl_te_en_r <= `LCD_LCD_CTRL_TE_EN_RST;
-    lcd_ctrl_cmd_seq_en_r <= `LCD_LCD_CTRL_CMD_SEQ_EN_RST;
-    lcd_ctrl_stream_mode_r <= `LCD_LCD_CTRL_STREAM_MODE_RST;
-    lcd_ctrl_partial_en_r <= `LCD_LCD_CTRL_PARTIAL_EN_RST;
-    lcd_ctrl_byte_swap_r <= `LCD_LCD_CTRL_BYTE_SWAP_RST;
-    lcd_ctrl_fb_sel_r <= `LCD_LCD_CTRL_FB_SEL_RST;
-    lcd_ctrl_soft_rst_r <= `LCD_LCD_CTRL_SOFT_RST_RST;
-    lcd_ctrl_force_cmd_r <= `LCD_LCD_CTRL_FORCE_CMD_RST;
-    lcd_ctrl_dma_src_r <= `LCD_LCD_CTRL_DMA_SRC_RST;
-    lcd_ctrl_auto_buf_sel_r <= `LCD_LCD_CTRL_AUTO_BUF_SEL_RST;
-    lcd_status_frame_done_r <= `LCD_LCD_STATUS_FRAME_DONE_RST;
-    lcd_status_cmd_done_r <= `LCD_LCD_STATUS_CMD_DONE_RST;
-    lcd_status_frame_late_r <= `LCD_LCD_STATUS_FRAME_LATE_RST;
-    lcd_status_addr_oob_r <= `LCD_LCD_STATUS_ADDR_OOB_RST;
-    lcd_status_stride_err_r <= `LCD_LCD_STATUS_STRIDE_ERR_RST;
-    lcd_status_axi_err_r <= `LCD_LCD_STATUS_AXI_ERR_RST;
-    lcd_status_fifo_underrun_r <= `LCD_LCD_STATUS_FIFO_UNDERRUN_RST;
-    lcd_status_te_timeout_r <= `LCD_LCD_STATUS_TE_TIMEOUT_RST;
-    lcd_status_mode_switch_err_r <= `LCD_LCD_STATUS_MODE_SWITCH_ERR_RST;
-    lcd_irq_en_frame_done_en_r <= `LCD_LCD_IRQ_EN_FRAME_DONE_EN_RST;
-    lcd_irq_en_cmd_done_en_r <= `LCD_LCD_IRQ_EN_CMD_DONE_EN_RST;
-    lcd_irq_en_frame_late_en_r <= `LCD_LCD_IRQ_EN_FRAME_LATE_EN_RST;
-    lcd_irq_en_addr_oob_en_r <= `LCD_LCD_IRQ_EN_ADDR_OOB_EN_RST;
-    lcd_irq_en_stride_err_en_r <= `LCD_LCD_IRQ_EN_STRIDE_ERR_EN_RST;
-    lcd_irq_en_axi_err_en_r <= `LCD_LCD_IRQ_EN_AXI_ERR_EN_RST;
-    lcd_irq_en_fifo_underrun_en_r <= `LCD_LCD_IRQ_EN_FIFO_UNDERRUN_EN_RST;
-    lcd_irq_en_te_timeout_en_r <= `LCD_LCD_IRQ_EN_TE_TIMEOUT_EN_RST;
-    lcd_irq_en_mode_switch_err_en_r <= `LCD_LCD_IRQ_EN_MODE_SWITCH_ERR_EN_RST;
-    lcd_irq_en_cmd_half_empty_en_r <= `LCD_LCD_IRQ_EN_CMD_HALF_EMPTY_EN_RST;
-    lcd_fb0_addr_fb0_addr_r <= `LCD_LCD_FB0_ADDR_FB0_ADDR_RST;
-    lcd_fb1_addr_fb1_addr_r <= `LCD_LCD_FB1_ADDR_FB1_ADDR_RST;
-    lcd_stride_stride_r <= `LCD_LCD_STRIDE_STRIDE_RST;
-    lcd_pu_x_pu_x_start_r <= `LCD_LCD_PU_X_PU_X_START_RST;
-    lcd_pu_x_pu_x_end_r <= `LCD_LCD_PU_X_PU_X_END_RST;
-    lcd_pu_y_pu_y_start_r <= `LCD_LCD_PU_Y_PU_Y_START_RST;
-    lcd_pu_y_pu_y_end_r <= `LCD_LCD_PU_Y_PU_Y_END_RST;
-    lcd_spi_cfg_spi_div_r <= `LCD_LCD_SPI_CFG_SPI_DIV_RST;
-    lcd_spi_cfg_spi_mode_r <= `LCD_LCD_SPI_CFG_SPI_MODE_RST;
-    lcd_spi_cfg_wire_3_r <= `LCD_LCD_SPI_CFG_WIRE_3_RST;
-    lcd_spi_cfg_cs_setup_r <= `LCD_LCD_SPI_CFG_CS_SETUP_RST;
-    lcd_spi_cfg_cs_hold_r <= `LCD_LCD_SPI_CFG_CS_HOLD_RST;
-    lcd_te_cfg_te_fps_num_r <= `LCD_LCD_TE_CFG_TE_FPS_NUM_RST;
-    lcd_te_cfg_te_fps_den_r <= `LCD_LCD_TE_CFG_TE_FPS_DEN_RST;
-    lcd_te_cfg_te_timeout_r <= `LCD_LCD_TE_CFG_TE_TIMEOUT_RST;
-    lcd_te_cfg_te_pol_r <= `LCD_LCD_TE_CFG_TE_POL_RST;
-    lcd_resx_cfg0_resx_width_r <= `LCD_LCD_RESX_CFG0_RESX_WIDTH_RST;
-    lcd_resx_cfg1_resx_delay_r <= `LCD_LCD_RESX_CFG1_RESX_DELAY_RST;
-    lcd_resx_cfg1_resx_assert_r <= `LCD_LCD_RESX_CFG1_RESX_ASSERT_RST;
-    lcd_cmd_fifo_cmd_entry_r <= `LCD_LCD_CMD_FIFO_CMD_ENTRY_RST;
-    lcd_frame_ctrl_frame_ready_r <= `LCD_LCD_FRAME_CTRL_FRAME_READY_RST;
+    lcd_ctrl_lcd_en_r <= `LCD_CTRL_EN_RST;
+    lcd_ctrl_dma_en_r <= `LCD_CTRL_DMA_EN_RST;
+    lcd_ctrl_te_en_r <= `LCD_CTRL_TE_EN_RST;
+    lcd_ctrl_cmd_seq_en_r <= `LCD_CTRL_CMD_SEQ_EN_RST;
+    lcd_ctrl_stream_mode_r <= `LCD_CTRL_STREAM_MODE_RST;
+    lcd_ctrl_partial_en_r <= `LCD_CTRL_PARTIAL_EN_RST;
+    lcd_ctrl_byte_swap_r <= `LCD_CTRL_BYTE_SWAP_RST;
+    lcd_ctrl_fb_sel_r <= `LCD_CTRL_FB_SEL_RST;
+    lcd_ctrl_soft_rst_r <= `LCD_CTRL_SOFT_RST_RST;
+    lcd_ctrl_force_cmd_r <= `LCD_CTRL_FORCE_CMD_RST;
+    lcd_ctrl_dma_src_r <= `LCD_CTRL_DMA_SRC_RST;
+    lcd_ctrl_auto_buf_sel_r <= `LCD_CTRL_AUTO_BUF_SEL_RST;
+    lcd_status_frame_done_r <= `LCD_STATUS_FRAME_DONE_RST;
+    lcd_status_cmd_done_r <= `LCD_STATUS_CMD_DONE_RST;
+    lcd_status_frame_late_r <= `LCD_STATUS_FRAME_LATE_RST;
+    lcd_status_addr_oob_r <= `LCD_STATUS_ADDR_OOB_RST;
+    lcd_status_stride_err_r <= `LCD_STATUS_STRIDE_ERR_RST;
+    lcd_status_axi_err_r <= `LCD_STATUS_AXI_ERR_RST;
+    lcd_status_fifo_underrun_r <= `LCD_STATUS_FIFO_UNDERRUN_RST;
+    lcd_status_te_timeout_r <= `LCD_STATUS_TE_TIMEOUT_RST;
+    lcd_status_mode_switch_err_r <= `LCD_STATUS_MODE_SWITCH_ERR_RST;
+    lcd_irq_en_frame_done_en_r <= `LCD_IRQ_EN_FRAME_DONE_EN_RST;
+    lcd_irq_en_cmd_done_en_r <= `LCD_IRQ_EN_CMD_DONE_EN_RST;
+    lcd_irq_en_frame_late_en_r <= `LCD_IRQ_EN_FRAME_LATE_EN_RST;
+    lcd_irq_en_addr_oob_en_r <= `LCD_IRQ_EN_ADDR_OOB_EN_RST;
+    lcd_irq_en_stride_err_en_r <= `LCD_IRQ_EN_STRIDE_ERR_EN_RST;
+    lcd_irq_en_axi_err_en_r <= `LCD_IRQ_EN_AXI_ERR_EN_RST;
+    lcd_irq_en_fifo_underrun_en_r <= `LCD_IRQ_EN_FIFO_UNDERRUN_EN_RST;
+    lcd_irq_en_te_timeout_en_r <= `LCD_IRQ_EN_TE_TIMEOUT_EN_RST;
+    lcd_irq_en_mode_switch_err_en_r <= `LCD_IRQ_EN_MODE_SWITCH_ERR_EN_RST;
+    lcd_irq_en_cmd_half_empty_en_r <= `LCD_IRQ_EN_CMD_HALF_EMPTY_EN_RST;
+    lcd_fb0_addr_fb0_addr_r <= `LCD_FB0_ADDR_FB0_ADDR_RST;
+    lcd_fb1_addr_fb1_addr_r <= `LCD_FB1_ADDR_FB1_ADDR_RST;
+    lcd_stride_stride_r <= `LCD_STRIDE_STRIDE_RST;
+    lcd_pu_x_pu_x_start_r <= `LCD_PU_X_PU_X_START_RST;
+    lcd_pu_x_pu_x_end_r <= `LCD_PU_X_PU_X_END_RST;
+    lcd_pu_y_pu_y_start_r <= `LCD_PU_Y_PU_Y_START_RST;
+    lcd_pu_y_pu_y_end_r <= `LCD_PU_Y_PU_Y_END_RST;
+    lcd_spi_cfg_spi_div_r <= `LCD_SPI_CFG_SPI_DIV_RST;
+    lcd_spi_cfg_spi_mode_r <= `LCD_SPI_CFG_SPI_MODE_RST;
+    lcd_spi_cfg_wire_3_r <= `LCD_SPI_CFG_WIRE_3_RST;
+    lcd_spi_cfg_cs_setup_r <= `LCD_SPI_CFG_CS_SETUP_RST;
+    lcd_spi_cfg_cs_hold_r <= `LCD_SPI_CFG_CS_HOLD_RST;
+    lcd_te_cfg_te_fps_num_r <= `LCD_TE_CFG_TE_FPS_NUM_RST;
+    lcd_te_cfg_te_fps_den_r <= `LCD_TE_CFG_TE_FPS_DEN_RST;
+    lcd_te_cfg_te_timeout_r <= `LCD_TE_CFG_TE_TIMEOUT_RST;
+    lcd_te_cfg_te_pol_r <= `LCD_TE_CFG_TE_POL_RST;
+    lcd_resx_cfg0_resx_width_r <= `LCD_RESX_CFG0_RESX_WIDTH_RST;
+    lcd_resx_cfg1_resx_delay_r <= `LCD_RESX_CFG1_RESX_DELAY_RST;
+    lcd_resx_cfg1_resx_assert_r <= `LCD_RESX_CFG1_RESX_ASSERT_RST;
+    lcd_cmd_fifo_cmd_entry_r <= `LCD_CMD_FIFO_CMD_ENTRY_RST;
+    lcd_frame_ctrl_frame_ready_r <= `LCD_FRAME_CTRL_FRAME_READY_RST;
     lcd_cmd_fifo_cmd_entry_wr_r <= 1'b0;
     pready_rd_r <= 1'b0;
   end else begin
@@ -242,7 +242,7 @@ always_ff @(posedge PCLK or negedge PRESETn) begin
     // APB Write Decode — processed BEFORE HW-set to give HW priority over SW clear
     if (PSEL && PENABLE && PWRITE) begin
       case (PADDR)
-        `LCD_LCD_CTRL_ADDR: begin  // LCD_CTRL
+        `LCD_CTRL_ADDR: begin  // LCD_CTRL
           lcd_ctrl_lcd_en_r <= PWDATA[0];
           lcd_ctrl_dma_en_r <= PWDATA[1];
           lcd_ctrl_te_en_r <= PWDATA[2];
@@ -256,7 +256,7 @@ always_ff @(posedge PCLK or negedge PRESETn) begin
           lcd_ctrl_dma_src_r <= PWDATA[10];
           lcd_ctrl_auto_buf_sel_r <= PWDATA[11];
         end
-        `LCD_LCD_STATUS_ADDR: begin  // LCD_STATUS
+        `LCD_STATUS_ADDR: begin  // LCD_STATUS
           if (PWDATA[0]) lcd_status_frame_done_r <= 1'b0;  // write-1-to-clear
           if (PWDATA[1]) lcd_status_cmd_done_r <= 1'b0;  // write-1-to-clear
           if (PWDATA[2]) lcd_status_frame_late_r <= 1'b0;  // write-1-to-clear
@@ -267,7 +267,7 @@ always_ff @(posedge PCLK or negedge PRESETn) begin
           if (PWDATA[7]) lcd_status_te_timeout_r <= 1'b0;  // write-1-to-clear
           if (PWDATA[8]) lcd_status_mode_switch_err_r <= 1'b0;  // write-1-to-clear
         end
-        `LCD_LCD_IRQ_EN_ADDR: begin  // LCD_IRQ_EN
+        `LCD_IRQ_EN_ADDR: begin  // LCD_IRQ_EN
           lcd_irq_en_frame_done_en_r <= PWDATA[0];
           lcd_irq_en_cmd_done_en_r <= PWDATA[1];
           lcd_irq_en_frame_late_en_r <= PWDATA[2];
@@ -279,48 +279,48 @@ always_ff @(posedge PCLK or negedge PRESETn) begin
           lcd_irq_en_mode_switch_err_en_r <= PWDATA[8];
           lcd_irq_en_cmd_half_empty_en_r <= PWDATA[9];
         end
-        `LCD_LCD_FB0_ADDR_ADDR: begin  // LCD_FB0_ADDR
+        `LCD_FB0_ADDR: begin  // LCD_FB0_ADDR
           lcd_fb0_addr_fb0_addr_r <= PWDATA[31:0];
         end
-        `LCD_LCD_FB1_ADDR_ADDR: begin  // LCD_FB1_ADDR
+        `LCD_FB1_ADDR: begin  // LCD_FB1_ADDR
           lcd_fb1_addr_fb1_addr_r <= PWDATA[31:0];
         end
-        `LCD_LCD_STRIDE_ADDR: begin  // LCD_STRIDE
+        `LCD_STRIDE_ADDR: begin  // LCD_STRIDE
           lcd_stride_stride_r <= PWDATA[15:0];
         end
-        `LCD_LCD_PU_X_ADDR: begin  // LCD_PU_X
+        `LCD_PU_X_ADDR: begin  // LCD_PU_X
           lcd_pu_x_pu_x_start_r <= PWDATA[15:0];
           lcd_pu_x_pu_x_end_r <= PWDATA[31:16];
         end
-        `LCD_LCD_PU_Y_ADDR: begin  // LCD_PU_Y
+        `LCD_PU_Y_ADDR: begin  // LCD_PU_Y
           lcd_pu_y_pu_y_start_r <= PWDATA[15:0];
           lcd_pu_y_pu_y_end_r <= PWDATA[31:16];
         end
-        `LCD_LCD_SPI_CFG_ADDR: begin  // LCD_SPI_CFG
+        `LCD_SPI_CFG_ADDR: begin  // LCD_SPI_CFG
           lcd_spi_cfg_spi_div_r <= PWDATA[3:0];
           lcd_spi_cfg_spi_mode_r <= PWDATA[5:4];
           lcd_spi_cfg_wire_3_r <= PWDATA[6];
           lcd_spi_cfg_cs_setup_r <= PWDATA[11:8];
           lcd_spi_cfg_cs_hold_r <= PWDATA[15:12];
         end
-        `LCD_LCD_TE_CFG_ADDR: begin  // LCD_TE_CFG
+        `LCD_TE_CFG_ADDR: begin  // LCD_TE_CFG
           lcd_te_cfg_te_fps_num_r <= PWDATA[7:0];
           lcd_te_cfg_te_fps_den_r <= PWDATA[15:8];
           lcd_te_cfg_te_timeout_r <= PWDATA[23:16];
           lcd_te_cfg_te_pol_r <= PWDATA[24];
         end
-        `LCD_LCD_RESX_CFG0_ADDR: begin  // LCD_RESX_CFG0
+        `LCD_RESX_CFG0_ADDR: begin  // LCD_RESX_CFG0
           lcd_resx_cfg0_resx_width_r <= PWDATA[15:0];
         end
-        `LCD_LCD_RESX_CFG1_ADDR: begin  // LCD_RESX_CFG1
+        `LCD_RESX_CFG1_ADDR: begin  // LCD_RESX_CFG1
           lcd_resx_cfg1_resx_delay_r <= PWDATA[15:0];
           if (PWDATA[16]) lcd_resx_cfg1_resx_assert_r <= 1'b1;  // write-1-to-set
         end
-        `LCD_LCD_CMD_FIFO_ADDR: begin  // LCD_CMD_FIFO
+        `LCD_CMD_FIFO_ADDR: begin  // LCD_CMD_FIFO
           lcd_cmd_fifo_cmd_entry_r    <= PWDATA[31:0];
           lcd_cmd_fifo_cmd_entry_wr_r <= 1'b1;
         end
-        `LCD_LCD_FRAME_CTRL_ADDR: begin  // LCD_FRAME_CTRL
+        `LCD_FRAME_CTRL_ADDR: begin  // LCD_FRAME_CTRL
           if (PWDATA[0]) lcd_frame_ctrl_frame_ready_r <= 1'b1;  // write-1-to-set
         end
         default: ;  // undefined address — PSLVERR asserted combinationally
@@ -373,7 +373,7 @@ always_ff @(posedge PCLK or negedge PRESETn) begin
   end else if (PSEL && PENABLE && !PWRITE) begin
     PRDATA <= 32'h0;
     case (PADDR)
-      `LCD_LCD_CTRL_ADDR: begin  // LCD_CTRL (RW)
+      `LCD_CTRL_ADDR: begin  // LCD_CTRL (RW)
         PRDATA[0] <= lcd_ctrl_lcd_en_r;
         PRDATA[1] <= lcd_ctrl_dma_en_r;
         PRDATA[2] <= lcd_ctrl_te_en_r;
@@ -385,7 +385,7 @@ always_ff @(posedge PCLK or negedge PRESETn) begin
         PRDATA[10] <= lcd_ctrl_dma_src_r;
         PRDATA[11] <= lcd_ctrl_auto_buf_sel_r;
       end
-      `LCD_LCD_STATUS_ADDR: begin  // LCD_STATUS (W1C)
+      `LCD_STATUS_ADDR: begin  // LCD_STATUS (W1C)
         PRDATA[0] <= lcd_status_frame_done_r;
         PRDATA[1] <= lcd_status_cmd_done_r;
         PRDATA[2] <= lcd_status_frame_late_r;
@@ -401,7 +401,7 @@ always_ff @(posedge PCLK or negedge PRESETn) begin
         PRDATA[12] <= lcd_status_cmd_busy;
         PRDATA[13] <= lcd_status_resx_active;
       end
-      `LCD_LCD_IRQ_EN_ADDR: begin  // LCD_IRQ_EN (RW)
+      `LCD_IRQ_EN_ADDR: begin  // LCD_IRQ_EN (RW)
         PRDATA[0] <= lcd_irq_en_frame_done_en_r;
         PRDATA[1] <= lcd_irq_en_cmd_done_en_r;
         PRDATA[2] <= lcd_irq_en_frame_late_en_r;
@@ -413,64 +413,64 @@ always_ff @(posedge PCLK or negedge PRESETn) begin
         PRDATA[8] <= lcd_irq_en_mode_switch_err_en_r;
         PRDATA[9] <= lcd_irq_en_cmd_half_empty_en_r;
       end
-      `LCD_LCD_FB0_ADDR_ADDR: begin  // LCD_FB0_ADDR (RW)
+      `LCD_FB0_ADDR: begin  // LCD_FB0_ADDR (RW)
         PRDATA[31:0] <= lcd_fb0_addr_fb0_addr_r;
       end
-      `LCD_LCD_FB1_ADDR_ADDR: begin  // LCD_FB1_ADDR (RW)
+      `LCD_FB1_ADDR: begin  // LCD_FB1_ADDR (RW)
         PRDATA[31:0] <= lcd_fb1_addr_fb1_addr_r;
       end
-      `LCD_LCD_STRIDE_ADDR: begin  // LCD_STRIDE (RW)
+      `LCD_STRIDE_ADDR: begin  // LCD_STRIDE (RW)
         PRDATA[15:0] <= lcd_stride_stride_r;
       end
-      `LCD_LCD_PU_X_ADDR: begin  // LCD_PU_X (RW)
+      `LCD_PU_X_ADDR: begin  // LCD_PU_X (RW)
         PRDATA[15:0] <= lcd_pu_x_pu_x_start_r;
         PRDATA[31:16] <= lcd_pu_x_pu_x_end_r;
       end
-      `LCD_LCD_PU_Y_ADDR: begin  // LCD_PU_Y (RW)
+      `LCD_PU_Y_ADDR: begin  // LCD_PU_Y (RW)
         PRDATA[15:0] <= lcd_pu_y_pu_y_start_r;
         PRDATA[31:16] <= lcd_pu_y_pu_y_end_r;
       end
-      `LCD_LCD_SPI_CFG_ADDR: begin  // LCD_SPI_CFG (RW)
+      `LCD_SPI_CFG_ADDR: begin  // LCD_SPI_CFG (RW)
         PRDATA[3:0] <= lcd_spi_cfg_spi_div_r;
         PRDATA[5:4] <= lcd_spi_cfg_spi_mode_r;
         PRDATA[6] <= lcd_spi_cfg_wire_3_r;
         PRDATA[11:8] <= lcd_spi_cfg_cs_setup_r;
         PRDATA[15:12] <= lcd_spi_cfg_cs_hold_r;
       end
-      `LCD_LCD_TE_CFG_ADDR: begin  // LCD_TE_CFG (RW)
+      `LCD_TE_CFG_ADDR: begin  // LCD_TE_CFG (RW)
         PRDATA[7:0] <= lcd_te_cfg_te_fps_num_r;
         PRDATA[15:8] <= lcd_te_cfg_te_fps_den_r;
         PRDATA[23:16] <= lcd_te_cfg_te_timeout_r;
         PRDATA[24] <= lcd_te_cfg_te_pol_r;
       end
-      `LCD_LCD_RESX_CFG0_ADDR: begin  // LCD_RESX_CFG0 (RW)
+      `LCD_RESX_CFG0_ADDR: begin  // LCD_RESX_CFG0 (RW)
         PRDATA[15:0] <= lcd_resx_cfg0_resx_width_r;
       end
-      `LCD_LCD_RESX_CFG1_ADDR: begin  // LCD_RESX_CFG1 (RW)
+      `LCD_RESX_CFG1_ADDR: begin  // LCD_RESX_CFG1 (RW)
         PRDATA[15:0] <= lcd_resx_cfg1_resx_delay_r;
       end
-      `LCD_LCD_CMD_STATUS_ADDR: begin  // LCD_CMD_STATUS (RO)
+      `LCD_CMD_STATUS_ADDR: begin  // LCD_CMD_STATUS (RO)
         PRDATA[5:0] <= lcd_cmd_status_cmd_fifo_level;
         PRDATA[6] <= lcd_cmd_status_cmd_fifo_full;
         PRDATA[7] <= lcd_cmd_status_cmd_fifo_empty;
         PRDATA[8] <= lcd_cmd_status_cmd_fifo_half_empty;
       end
-      `LCD_LCD_ERR_ADDR_ADDR: begin  // LCD_ERR_ADDR (RO)
+      `LCD_ERR_ADDR: begin  // LCD_ERR_ADDR (RO)
         PRDATA[31:0] <= lcd_err_addr_err_addr;
       end
-      `LCD_LCD_VERSION_ADDR: begin  // LCD_VERSION (RO)
+      `LCD_VERSION_ADDR: begin  // LCD_VERSION (RO)
         PRDATA[7:0] <= lcd_version_ip_ver_minor;
         PRDATA[15:8] <= lcd_version_ip_ver_major;
         PRDATA[31:16] <= lcd_version_ip_id;
       end
-      `LCD_LCD_INFO_ADDR: begin  // LCD_INFO (RO)
+      `LCD_INFO_ADDR: begin  // LCD_INFO (RO)
         PRDATA[11:0] <= lcd_info_max_col;
         PRDATA[23:12] <= lcd_info_max_row;
       end
-      `LCD_LCD_FRAME_CTRL_ADDR: begin  // LCD_FRAME_CTRL (RW)
+      `LCD_FRAME_CTRL_ADDR: begin  // LCD_FRAME_CTRL (RW)
         PRDATA[15:8] <= lcd_frame_ctrl_frame_count;
       end
-      `LCD_LCD_LINEBUF_STATUS_ADDR: begin  // LCD_LINEBUF_STATUS (RO)
+      `LCD_LINEBUF_STATUS_ADDR: begin  // LCD_LINEBUF_STATUS (RO)
         PRDATA[0] <= lcd_linebuf_status_buf_a_full;
         PRDATA[1] <= lcd_linebuf_status_buf_b_full;
         PRDATA[2] <= lcd_linebuf_status_buf_a_empty;
@@ -478,13 +478,13 @@ always_ff @(posedge PCLK or negedge PRESETn) begin
         PRDATA[4] <= lcd_linebuf_status_active_wr_buf;
         PRDATA[5] <= lcd_linebuf_status_active_rd_buf;
       end
-      `LCD_LCD_SLAVE_BUFA_ADDR_ADDR: begin  // LCD_SLAVE_BUFA_ADDR (RO)
+      `LCD_SLAVE_BUFA_ADDR: begin  // LCD_SLAVE_BUFA_ADDR (RO)
         PRDATA[31:0] <= lcd_slave_bufa_addr_bufa_addr;
       end
-      `LCD_LCD_SLAVE_BUFB_ADDR_ADDR: begin  // LCD_SLAVE_BUFB_ADDR (RO)
+      `LCD_SLAVE_BUFB_ADDR: begin  // LCD_SLAVE_BUFB_ADDR (RO)
         PRDATA[31:0] <= lcd_slave_bufb_addr_bufb_addr;
       end
-      `LCD_LCD_SLAVE_INFO_ADDR: begin  // LCD_SLAVE_INFO (RO)
+      `LCD_SLAVE_INFO_ADDR: begin  // LCD_SLAVE_INFO (RO)
         PRDATA[31:0] <= lcd_slave_info_aperture_size;
       end
     endcase
@@ -504,45 +504,45 @@ always_comb begin
   if (PSEL && PENABLE) begin
     if (PWRITE) begin
       case (PADDR)
-        `LCD_LCD_CTRL_ADDR: PSLVERR = 1'b0;  // LCD_CTRL
-        `LCD_LCD_STATUS_ADDR: PSLVERR = 1'b0;  // LCD_STATUS
-        `LCD_LCD_IRQ_EN_ADDR: PSLVERR = 1'b0;  // LCD_IRQ_EN
-        `LCD_LCD_FB0_ADDR_ADDR: PSLVERR = 1'b0;  // LCD_FB0_ADDR
-        `LCD_LCD_FB1_ADDR_ADDR: PSLVERR = 1'b0;  // LCD_FB1_ADDR
-        `LCD_LCD_STRIDE_ADDR: PSLVERR = 1'b0;  // LCD_STRIDE
-        `LCD_LCD_PU_X_ADDR: PSLVERR = 1'b0;  // LCD_PU_X
-        `LCD_LCD_PU_Y_ADDR: PSLVERR = 1'b0;  // LCD_PU_Y
-        `LCD_LCD_SPI_CFG_ADDR: PSLVERR = 1'b0;  // LCD_SPI_CFG
-        `LCD_LCD_TE_CFG_ADDR: PSLVERR = 1'b0;  // LCD_TE_CFG
-        `LCD_LCD_RESX_CFG0_ADDR: PSLVERR = 1'b0;  // LCD_RESX_CFG0
-        `LCD_LCD_RESX_CFG1_ADDR: PSLVERR = 1'b0;  // LCD_RESX_CFG1
-        `LCD_LCD_CMD_FIFO_ADDR: PSLVERR = 1'b0;  // LCD_CMD_FIFO
-        `LCD_LCD_FRAME_CTRL_ADDR: PSLVERR = 1'b0;  // LCD_FRAME_CTRL
+        `LCD_CTRL_ADDR: PSLVERR = 1'b0;  // LCD_CTRL
+        `LCD_STATUS_ADDR: PSLVERR = 1'b0;  // LCD_STATUS
+        `LCD_IRQ_EN_ADDR: PSLVERR = 1'b0;  // LCD_IRQ_EN
+        `LCD_FB0_ADDR: PSLVERR = 1'b0;  // LCD_FB0_ADDR
+        `LCD_FB1_ADDR: PSLVERR = 1'b0;  // LCD_FB1_ADDR
+        `LCD_STRIDE_ADDR: PSLVERR = 1'b0;  // LCD_STRIDE
+        `LCD_PU_X_ADDR: PSLVERR = 1'b0;  // LCD_PU_X
+        `LCD_PU_Y_ADDR: PSLVERR = 1'b0;  // LCD_PU_Y
+        `LCD_SPI_CFG_ADDR: PSLVERR = 1'b0;  // LCD_SPI_CFG
+        `LCD_TE_CFG_ADDR: PSLVERR = 1'b0;  // LCD_TE_CFG
+        `LCD_RESX_CFG0_ADDR: PSLVERR = 1'b0;  // LCD_RESX_CFG0
+        `LCD_RESX_CFG1_ADDR: PSLVERR = 1'b0;  // LCD_RESX_CFG1
+        `LCD_CMD_FIFO_ADDR: PSLVERR = 1'b0;  // LCD_CMD_FIFO
+        `LCD_FRAME_CTRL_ADDR: PSLVERR = 1'b0;  // LCD_FRAME_CTRL
         default: PSLVERR = 1'b1;  // RO, HW-owned, or undefined address
       endcase
     end else begin
       case (PADDR)
-        `LCD_LCD_CTRL_ADDR: PSLVERR = 1'b0;  // LCD_CTRL
-        `LCD_LCD_STATUS_ADDR: PSLVERR = 1'b0;  // LCD_STATUS
-        `LCD_LCD_IRQ_EN_ADDR: PSLVERR = 1'b0;  // LCD_IRQ_EN
-        `LCD_LCD_FB0_ADDR_ADDR: PSLVERR = 1'b0;  // LCD_FB0_ADDR
-        `LCD_LCD_FB1_ADDR_ADDR: PSLVERR = 1'b0;  // LCD_FB1_ADDR
-        `LCD_LCD_STRIDE_ADDR: PSLVERR = 1'b0;  // LCD_STRIDE
-        `LCD_LCD_PU_X_ADDR: PSLVERR = 1'b0;  // LCD_PU_X
-        `LCD_LCD_PU_Y_ADDR: PSLVERR = 1'b0;  // LCD_PU_Y
-        `LCD_LCD_SPI_CFG_ADDR: PSLVERR = 1'b0;  // LCD_SPI_CFG
-        `LCD_LCD_TE_CFG_ADDR: PSLVERR = 1'b0;  // LCD_TE_CFG
-        `LCD_LCD_RESX_CFG0_ADDR: PSLVERR = 1'b0;  // LCD_RESX_CFG0
-        `LCD_LCD_RESX_CFG1_ADDR: PSLVERR = 1'b0;  // LCD_RESX_CFG1
-        `LCD_LCD_CMD_STATUS_ADDR: PSLVERR = 1'b0;  // LCD_CMD_STATUS
-        `LCD_LCD_ERR_ADDR_ADDR: PSLVERR = 1'b0;  // LCD_ERR_ADDR
-        `LCD_LCD_VERSION_ADDR: PSLVERR = 1'b0;  // LCD_VERSION
-        `LCD_LCD_INFO_ADDR: PSLVERR = 1'b0;  // LCD_INFO
-        `LCD_LCD_FRAME_CTRL_ADDR: PSLVERR = 1'b0;  // LCD_FRAME_CTRL
-        `LCD_LCD_LINEBUF_STATUS_ADDR: PSLVERR = 1'b0;  // LCD_LINEBUF_STATUS
-        `LCD_LCD_SLAVE_BUFA_ADDR_ADDR: PSLVERR = 1'b0;  // LCD_SLAVE_BUFA_ADDR
-        `LCD_LCD_SLAVE_BUFB_ADDR_ADDR: PSLVERR = 1'b0;  // LCD_SLAVE_BUFB_ADDR
-        `LCD_LCD_SLAVE_INFO_ADDR: PSLVERR = 1'b0;  // LCD_SLAVE_INFO
+        `LCD_CTRL_ADDR: PSLVERR = 1'b0;  // LCD_CTRL
+        `LCD_STATUS_ADDR: PSLVERR = 1'b0;  // LCD_STATUS
+        `LCD_IRQ_EN_ADDR: PSLVERR = 1'b0;  // LCD_IRQ_EN
+        `LCD_FB0_ADDR: PSLVERR = 1'b0;  // LCD_FB0_ADDR
+        `LCD_FB1_ADDR: PSLVERR = 1'b0;  // LCD_FB1_ADDR
+        `LCD_STRIDE_ADDR: PSLVERR = 1'b0;  // LCD_STRIDE
+        `LCD_PU_X_ADDR: PSLVERR = 1'b0;  // LCD_PU_X
+        `LCD_PU_Y_ADDR: PSLVERR = 1'b0;  // LCD_PU_Y
+        `LCD_SPI_CFG_ADDR: PSLVERR = 1'b0;  // LCD_SPI_CFG
+        `LCD_TE_CFG_ADDR: PSLVERR = 1'b0;  // LCD_TE_CFG
+        `LCD_RESX_CFG0_ADDR: PSLVERR = 1'b0;  // LCD_RESX_CFG0
+        `LCD_RESX_CFG1_ADDR: PSLVERR = 1'b0;  // LCD_RESX_CFG1
+        `LCD_CMD_STATUS_ADDR: PSLVERR = 1'b0;  // LCD_CMD_STATUS
+        `LCD_ERR_ADDR: PSLVERR = 1'b0;  // LCD_ERR_ADDR
+        `LCD_VERSION_ADDR: PSLVERR = 1'b0;  // LCD_VERSION
+        `LCD_INFO_ADDR: PSLVERR = 1'b0;  // LCD_INFO
+        `LCD_FRAME_CTRL_ADDR: PSLVERR = 1'b0;  // LCD_FRAME_CTRL
+        `LCD_LINEBUF_STATUS_ADDR: PSLVERR = 1'b0;  // LCD_LINEBUF_STATUS
+        `LCD_SLAVE_BUFA_ADDR: PSLVERR = 1'b0;  // LCD_SLAVE_BUFA_ADDR
+        `LCD_SLAVE_BUFB_ADDR: PSLVERR = 1'b0;  // LCD_SLAVE_BUFB_ADDR
+        `LCD_SLAVE_INFO_ADDR: PSLVERR = 1'b0;  // LCD_SLAVE_INFO
         default: PSLVERR = 1'b1;  // WO, WO_PULSED, or undefined address
       endcase
     end
