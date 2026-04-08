@@ -42,7 +42,7 @@
 | LCD_TE_CFG | 0x024 | RW | SW | Bresenham numerator: target FPS (e.g. 24). Divider passes TE_FPS_NUM of every TE_FPS_DEN pulses. |
 | LCD_RESX_CFG0 | 0x028 | RW | SW | RESX pulse width in sys_clk cycles. GC9306X requires >= 10us low (1000 cycles @ 100MHz). |
 | LCD_RESX_CFG1 | 0x02C | RW | SW | Delay in sys_clk cycles after RESX de-assertion before RESX_DONE is set. GC9306X requires >= 5ms. |
-| LCD_CMD_FIFO | 0x030 | WO_PULSED | SW | Word0: LCD command byte to send (DC=0). E.g. 0x2A=CASET, 0x2B=PASET, 0x2C=RAMWR. |
+| LCD_CMD_FIFO | 0x030 | WO | SW | Write-only FIFO push port. Bits[7:0]=CMD_BYTE, Bits[23:16]=PAYLOAD_LEN. Hardware decodes internally. |
 | LCD_CMD_STATUS | 0x034 | RO | HW | Current number of entries in CMD FIFO (0-63). |
 | LCD_ERR_ADDR | 0x038 | RO | HW | AXI read address that triggered last DMA fault (ADDR_OOB or AXI_ERR). Debug use. |
 | LCD_VERSION | 0x03C | RO | HW | Minor version number. Synthesis parameter IP_VER_MINOR. Default 0x00 for v1.0. |
@@ -282,9 +282,9 @@
 
 ### LCD_CMD_FIFO (0x030)
 
-**Description:** Word0: LCD command byte to send (DC=0). E.g. 0x2A=CASET, 0x2B=PASET, 0x2C=RAMWR.
+**Description:** Write-only FIFO push port. Bits[7:0]=CMD_BYTE, Bits[23:16]=PAYLOAD_LEN. Hardware decodes internally.
 
-**Access:** WO_PULSED  
+**Access:** WO  
 **Source:** SW  
 **Volatile:** No  
 **Reset Value:** 0x00000000
@@ -293,8 +293,7 @@
 
 | Field | Bits | Access | HW Write | Description |
 |-------|------|--------|----------|-------------|
-| CMD_BYTE | [7:0] | WO_PULSED | No | Word0: LCD command byte to send (DC=0). E.g. 0x2A=CASET, 0x2B=PASET, 0x2C=RAMWR. |
-| PAYLOAD_LEN | [23:16] | WO_PULSED | No | Word0: Number of payload bytes following (0-255). Word1+ carry payload bytes (DC=1). |
+| CMD_ENTRY | [31:0] | WO | No | Write-only FIFO push port. Bits[7:0]=CMD_BYTE, Bits[23:16]=PAYLOAD_LEN. Hardware decodes internally. |
 
 ### LCD_CMD_STATUS (0x034)
 

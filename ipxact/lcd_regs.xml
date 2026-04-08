@@ -887,32 +887,20 @@
 
         <ipxact:register>
           <ipxact:name>LCD_CMD_FIFO</ipxact:name>
-          <ipxact:description>Word0: LCD command byte to send (DC=0). E.g. 0x2A=CASET, 0x2B=PASET, 0x2C=RAMWR.</ipxact:description>
+          <ipxact:description>Write-only FIFO push port. Bits[7:0]=CMD_BYTE, Bits[23:16]=PAYLOAD_LEN. Hardware decodes internally.</ipxact:description>
           <ipxact:addressOffset>0x30</ipxact:addressOffset>
           <ipxact:size>32</ipxact:size>
           <ipxact:access>write-only</ipxact:access>
           <ipxact:field>
-            <ipxact:name>CMD_BYTE</ipxact:name>
-            <ipxact:description>Word0: LCD command byte to send (DC=0). E.g. 0x2A=CASET, 0x2B=PASET, 0x2C=RAMWR.</ipxact:description>
+            <ipxact:name>CMD_ENTRY</ipxact:name>
+            <ipxact:description>Write-only FIFO push port. Bits[7:0]=CMD_BYTE, Bits[23:16]=PAYLOAD_LEN. Hardware decodes internally.</ipxact:description>
             <ipxact:bitOffset>0</ipxact:bitOffset>
             <ipxact:resets>
               <ipxact:reset>
                 <ipxact:value>0x0</ipxact:value>
               </ipxact:reset>
             </ipxact:resets>
-            <ipxact:bitWidth>8</ipxact:bitWidth>
-            <ipxact:access>write-only</ipxact:access>
-          </ipxact:field>
-          <ipxact:field>
-            <ipxact:name>PAYLOAD_LEN</ipxact:name>
-            <ipxact:description>Word0: Number of payload bytes following (0-255). Word1+ carry payload bytes (DC=1).</ipxact:description>
-            <ipxact:bitOffset>16</ipxact:bitOffset>
-            <ipxact:resets>
-              <ipxact:reset>
-                <ipxact:value>0x0</ipxact:value>
-              </ipxact:reset>
-            </ipxact:resets>
-            <ipxact:bitWidth>8</ipxact:bitWidth>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
             <ipxact:access>write-only</ipxact:access>
           </ipxact:field>
         </ipxact:register>
